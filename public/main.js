@@ -53,3 +53,43 @@ getHTML.onclick = ()=>{
     }
     request.send()
 }
+
+// 请求XML
+getXML.onclick = ()=>{
+    let request = new XMLHttpRequest()
+    request.open('GET', '/4.xml')
+    request.onreadystatechange = ()=>{
+        if(request.readyState === 4){
+            if(request.status >= 200 && request.status < 300){
+                // 获取XML的内容
+                const dom = request.responseXML
+                const text = dom.getElementsByTagName('warning')[0].textContent
+                // 将获取的文本两边的空格去掉并打出
+                console.log(text.trim())
+            }else {
+                console.log('请求失败')
+            }
+        }
+    }
+    request.send()
+}
+
+// 请求JSON数据
+getJSON.onclick = ()=>{
+    let request = new XMLHttpRequest()
+    request.open('GET', '/5.json')
+    request.onreadystatechange = ()=>{
+        if(request.readyState === 4){
+            if(request.status >= 200 && request.status < 300){
+                console.log('请求成功,数据为')
+                console.log(request.response)
+                let object = JSON.parse(request.response)
+                console.log(object)
+                myName.textContent = object.name
+            } else {
+                console.log('请求失败')
+            }
+        }
+    }
+    request.send()
+}
