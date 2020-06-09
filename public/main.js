@@ -37,3 +37,17 @@ getJS.onclick = ()=>{
 }
 
 // 请求3.html
+getHTML.onclick = ()=>{
+    const request = new XMLHttpRequest()
+    request.open('GET', '/3.html')
+    request.onload = ()=>{
+        console.log('请求成功')
+        const div = document.createElement('div')
+        div.innerHTML = request.response
+        document.body.appendChild(div)
+    }
+    request.onerror = ()=>{
+        console.log('请求失败')
+    }
+    request.send()
+}
