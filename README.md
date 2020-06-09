@@ -1,10 +1,10 @@
 # AJAX
 
-使用node.js构建一个简单的本地服务器，用于学习AJAX发送请求及响应
+使用node.js构建一个简单的本地服务器，用于学习 AJAX 发送请求及响应的过程
 
 ## 运行
 
-安装 node-dev
+首先要安装一个 node 插件，如下：
 
 ```sh
 yarn global add node-dev
@@ -12,24 +12,21 @@ yarn global add node-dev
 npm i -g node-dev
 ```
 
-node-dev 可以自动重启 node 服务器，这样每次修改 node 文件都不用手动重启了
+> 作用：node-dev 可以自动重启 node 服务器，这样每次修改 node 文件都不用手动重启了
+>
+> npm地址:https://www.npmjs.com/package/node-dev
 
-npm地址:https://www.npmjs.com/package/node-dev
-
-运行
+运行服务器
 
 ```sh
 node-dev server.js 8888
 ```
 
-请求的一生
+在浏览器打开
 
-```js
-// 代码                               readyState的值
-const request = new XMLHttpRequest()    // 0
-request.open()                          // 1
-request.send()                          // 2
-第一个信息出现在浏览器 - 开始下载页面信息  // 3
-页面信息下载完成                         // 4
+```http
+http://localhost:8888/index.html
 ```
+
+
 
